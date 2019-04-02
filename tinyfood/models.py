@@ -54,6 +54,7 @@ class FarmBusiness(AbstractContact):
 
 
 class Farmer(models.Model):
+    active = models.BooleanField(default=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     farm = models.ForeignKey(FarmBusiness, on_delete=models.CASCADE)
 
@@ -78,6 +79,7 @@ class Product(models.Model):
     organic = models.BooleanField(default=True)
     producer = models.ForeignKey(FarmBusiness, on_delete=models.CASCADE)
     type = models.ForeignKey(ProductType, on_delete=models.CASCADE)
+    available = models.BooleanField(default=True)
 
     def __str__(self):
         return 'Product {}'.format(self.name)
