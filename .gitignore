@@ -1,0 +1,11 @@
+*.pyc
+*.bak
+*.bak.*
+local_*
+cache
+media/
+.sass-cache
+*.swp
+
+db.sqlite3
+_snippets
