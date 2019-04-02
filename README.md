@@ -32,3 +32,9 @@ http://localhost:8000/admin
 
 sign-in with your created credentials
 
+
+supported uris
+
+- /tinyfood/json_index
+
+

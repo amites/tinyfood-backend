@@ -17,6 +17,10 @@ class AbstractContact(models.Model):
     class Meta:
         abstract = True
 
+    @property
+    def address_str(self):
+        return '{}, {}, {}, {}'.format(self.address, self.city, self.state, self.zip_code)
+
 
 class UserProfile(AbstractContact):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
