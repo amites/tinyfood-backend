@@ -10,8 +10,8 @@ to get started
 
 if using `pyenv`
 ```
-pyenv install 3.6.6
-pyenv virtualenv 3.6.6 tinyfood
+pyenv install 3.7.3
+pyenv virtualenv 3.7.3 tinyfood
 pyenv activate tinyfood
 ```
 
