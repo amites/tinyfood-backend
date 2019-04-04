@@ -26,6 +26,10 @@ class UserProfile(AbstractContact):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     extra_data = models.CharField(max_length=200, null=True, blank=True)
 
+class ProductProfile(AbstractContact):
+    product = models.OneToOneField(Product, on_delete=models.CASCADE)
+    extra_data = models.CharField(max_length=200, null=True, blank=True)
+
 
 class FarmRegion(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)

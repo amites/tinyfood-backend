@@ -31,7 +31,12 @@ class ProductTypeAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['pk', 'name', 'available']
+    list_editable = ['available']
+
+    list_filter = [
+    	'producer',
+   	]
 
 
 @admin.register(ProductOrder)

@@ -9,3 +9,6 @@ media/
 
 db.sqlite3
 _snippets
+
+venv
+
