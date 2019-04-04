@@ -34,7 +34,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['pk', 'name', 'available']
     list_editable = ['available']
 
-    def queryset(self, request):
+    def get_queryset(self, request):
         qs = super(ProductAdmin, self).queryset(request)
         if request.user.is_superuser:
             return qs
