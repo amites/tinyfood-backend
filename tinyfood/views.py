@@ -27,18 +27,15 @@ def json_index(request):
     
     products_data = []
     for product in Product.objects.filter(available=True):
-        if not getattr(product.producer, 'producerprofile', False):
-            product.producer.producerprofile = ProducerProfile()
-            product.producer.producerprofile.save()
         products_data.append({
             'id': product.id,
-            'picture': product.picture,
+            'picture': product.picture.url,
             'sale': product.sale,
             'organic': product.organic,
-            'producer': product.producerprofile.name,
+            'producer': product.producer.name,
             'type': product.type,
             'available': product.available,
-            })  
+        })
 
     data = {
         'products': products_data,
