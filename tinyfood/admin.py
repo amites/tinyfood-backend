@@ -35,7 +35,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ['available']
 
     def get_queryset(self, request):
-        qs = super(ProductAdmin, self).queryset(request)
+        qs = super().get_queryset(request)
         if request.user.is_superuser:
             return qs
         farms = FarmBusiness.objects.filter(farmer__user=request.user)
