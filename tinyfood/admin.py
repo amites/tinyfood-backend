@@ -34,9 +34,13 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['pk', 'name', 'available']
     list_editable = ['available']
 
-    list_filter = [
-    	'producer',
-   	]
+    def queryset(self, request):
+        qs = super(ProductAdmin, self).queryset(request)
+        if request.user.is_superuser:
+            return qs
+        farms = FarmBusiness.objects.filter(farmer__user=request.user)
+
+        return qs.filter(producer__in=farms)
 
 
 @admin.register(ProductOrder)
